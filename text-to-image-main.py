@@ -16,7 +16,7 @@ def load_model():
 pipe = load_model()
 
 # Streamlit app
-st.title("Stable Diffusion Image Generator")
+st.title("Image Generator")
 
 # Text input for the prompt
 prompt = st.text_input("Enter the prompt:")
@@ -26,7 +26,7 @@ if st.button("Generate Image"):
     if prompt:
         with st.spinner("Generating image..."):
             # Generate the image
-            image = pipe(prompt, guidance_scale=7.5, num_inference_steps=30).images[0]
+            image = pipe(prompt, guidance_scale=7.5, num_inference_steps=5).images[0]
             
             # Display the image
             st.image(image, caption="Generated Image", use_column_width=True)
